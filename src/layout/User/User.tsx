@@ -13,7 +13,7 @@ import useNavigationItemHandle from '../../hooks/useNavigationItemHandle';
 import AuthContext from '../../contexts/authContext';
 
 const User = () => {
-	const { userData, setUser } = useContext(AuthContext);
+	const { userData, handleLogout, profilePicture } = useContext(AuthContext);
 
 	const navigate = useNavigate();
 	const handleItem = useNavigationItemHandle();
@@ -30,20 +30,17 @@ const User = () => {
 				role='presentation'
 				onClick={() => setCollapseStatus(!collapseStatus)}>
 				<div className='user-avatar'>
-					<img
-						srcSet={userData?.srcSet}
-						src={userData?.src}
-						alt='Avatar'
-						width={128}
-						height={128}
-					/>
+					<img src={profilePicture} alt='Avatar' width={128} height={128} />
 				</div>
 				<div className='user-info'>
-					<div className='user-name d-flex align-items-center'>
+					<div className='user-name d-flex align-items-center d-flex justify-content-between'>
 						{`${userData?.name} ${userData?.surname}`}
-						<Icon icon='Verified' className='ms-1' color='info' />
+						{/* <Icon icon='Verified' className='ms-1' color='info' /> */}
+						<p style={{ fontSize: '10px' }} className='bg-info px-1 rounded-1'>
+							234
+						</p>
 					</div>
-					<div className='user-sub-title'>{userData?.position}</div>
+					<div className='user-sub-title'>{userData?.emailAddress}</div>
 				</div>
 			</div>
 			<DropdownMenu>
@@ -121,8 +118,8 @@ const User = () => {
 							role='presentation'
 							className='navigation-item cursor-pointer'
 							onClick={() => {
-								if (setUser) {
-									setUser('');
+								if (handleLogout) {
+									handleLogout();
 								}
 								navigate(`../${demoPagesMenu.login.path}`);
 							}}>
