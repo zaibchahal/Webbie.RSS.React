@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { IUserProps, ISessionProps } from '../common/RssData/userSessionService';
 import { AppConst, profileUrls } from '../common/RssData/constants';
 import axios from 'axios';
+import ContextHelper from './ContextHelper';
 
 export interface IAuthContextProps {
 	userData: Partial<IUserProps>;
@@ -39,6 +40,7 @@ export const AuthContextProvider: FC<IAuthContextProviderProps> = ({ children })
 
 	const handleSetSession = (data: ISessionProps) => {
 		setSession(data);
+		<ContextHelper data={data} />;
 		localStorage.setItem(AppConst.CurrentSession, JSON.stringify(data));
 	};
 
