@@ -1,5 +1,4 @@
 import React from 'react';
-// import ReactDOM from 'react-dom'; // For React 17
 import { createRoot } from 'react-dom/client'; // For React 18
 import { BrowserRouter as Router } from 'react-router-dom';
 import './styles/styles.scss';
@@ -8,15 +7,19 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeContextProvider } from './contexts/themeContext';
 import { AuthContextProvider } from './contexts/authContext';
 import './i18n';
+import { store } from './store';
+import { Provider } from 'react-redux';
 
 const children = (
 	<AuthContextProvider>
 		<ThemeContextProvider>
-			<Router>
-				<React.StrictMode>
-					<App />
-				</React.StrictMode>
-			</Router>
+			<React.StrictMode>
+				<Provider store={store}>
+					<Router>
+						<App />
+					</Router>
+				</Provider>
+			</React.StrictMode>
 		</ThemeContextProvider>
 	</AuthContextProvider>
 );

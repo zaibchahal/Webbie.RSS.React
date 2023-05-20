@@ -189,10 +189,19 @@ const EXTRA = {
 	HOOKS: lazy(() => import('../pages/documentation/extras/HooksPage')),
 };
 
+const Rss = {
+	RssDashboard: lazy(() => import('../RssLayout/RssDashboard')),
+};
+
 const presentation: RouteProps[] = [
 	/**
 	 * Landing
 	 */
+	{
+		path: 'rss-dashboard',
+		element: <Rss.RssDashboard />,
+	},
+
 	{
 		path: dashboardPagesMenu.dashboard.path,
 		element: <LANDING.DASHBOARD />,

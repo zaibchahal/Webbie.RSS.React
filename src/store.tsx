@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import { combineReducers } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
+import sessionSlice from './@features/Authentication/auth.slice';
 let middlewares: any[] = [];
 
 if (process.env.NODE_ENV === 'development') {
@@ -24,6 +25,7 @@ const persistConfig = {
 
 const reducer = combineReducers({
 	user: userReducer,
+	session: sessionSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
