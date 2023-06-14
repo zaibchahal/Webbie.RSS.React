@@ -9,6 +9,7 @@ export { default as CustomHtml5 } from './CustomHtml5';
 export { default as CustomNpm } from './CustomNpm';
 export { default as CustomPayoneer } from './CustomPayoneer';
 export { default as CustomPaypal } from './CustomPaypal';
+export { default as CustomPak } from './CustomPak';
 export { default as CustomReact } from './CustomReact';
 export { default as CustomRocketLaunch } from './CustomRocketLaunch';
 export { default as CustomStorybook } from './CustomStorybook';

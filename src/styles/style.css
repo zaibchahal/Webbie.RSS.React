@@ -1,0 +1,12 @@
+.borderleft {
+    border-left: 2px solid green;
+}
+
+.borderright {
+    border-right: 2px solid green;
+}
+
+.bullet {
+    height: 80px;
+    width: 4px
+}

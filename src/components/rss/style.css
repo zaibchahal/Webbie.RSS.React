@@ -1,0 +1,11 @@
+.date-range {
+    position: absolute;
+    top: 100%; /* Position it below the container element */
+    left: 0;
+    z-index: 9999;
+}
+
+.date-range-container {
+    position: relative;
+    /* Additional styles as needed */
+}
